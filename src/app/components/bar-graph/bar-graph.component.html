@@ -1,5 +1,5 @@
 <ngx-charts-bar-vertical-2d
-  [view]="[1000, 300]"
+  [view]="windowSizeSm.matches ? [300, 150] : [1000, 400]"
   [scheme]="colorScheme"
   [results]="results"
   [gradient]="gradient"

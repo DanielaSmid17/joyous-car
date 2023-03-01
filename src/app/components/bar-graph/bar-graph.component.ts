@@ -15,10 +15,10 @@ export class BarGraphComponent implements OnInit {
     "46 to 60": {},
     "61 +": {},
   }
-  
+  windowSizeSm = window.matchMedia("(max-width: 720px)")
   // graph options
   results: any[] = [];
-  view = ['700px', '400px'];
+  view : number[] = this.windowSizeSm.matches ? [400, 200] : [700, 400]; 
   showXAxis: boolean = true;
   showYAxis: boolean = true;
   gradient: boolean = true;
