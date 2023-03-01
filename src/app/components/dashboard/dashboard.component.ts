@@ -10,10 +10,7 @@ export class DashboardComponent implements OnInit{
   user!: User;
   date = new Date()
 
-  
-  constructor(){
-    
-  }
+  constructor(){}
   
   // bringing user from local storage in case we want to use it
   ngOnInit(): void {
