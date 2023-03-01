@@ -1,6 +1,6 @@
 .main-container{
-    width: calc(100vw -16px);
-    height: calc(100vh -16px);
+    width: calc(100vw - 16px);
+    height: calc(100vh - 16px);
     padding: 16px;
     position: relative;
     background: linear-gradient(90deg, rgba(141,95,245,0.5) 0%, rgba(83,182,230,0.5) 35%);;
