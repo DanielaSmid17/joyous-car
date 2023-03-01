@@ -1,0 +1,27 @@
+<div class="main-container">
+    <div class="module">
+        <div class="title">
+            <h2>Dashboard</h2>
+            <p>Last time updated <span [style.color]="'#000'">{{date | date:'medium'}}</span></p>
+        </div>
+        <div class="graphics-container">
+            <div class="graphic-left">
+                <div class="graphic-top">
+                    <div>
+                        Preferred motor type by Gender
+                    </div>
+                    <app-bar-graph></app-bar-graph>
+                </div>
+                <div class="graphic-down">
+                    <app-pie-charts></app-pie-charts>
+                </div>
+            </div>
+            <div class="graphic-right">
+                <div>
+                    Cars purchased by Country
+                </div>
+                <app-countries-table></app-countries-table>
+            </div>
+        </div>
+    </div>
+</div>

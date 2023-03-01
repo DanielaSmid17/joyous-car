@@ -1,0 +1,82 @@
+.main-container{
+    width: calc(100vw -16px);
+    height: calc(100vh -16px);
+    padding: 16px;
+    position: relative;
+    background: linear-gradient(90deg, rgba(141,95,245,0.5) 0%, rgba(83,182,230,0.5) 35%);;
+    padding: 3px;  
+}
+
+.module {
+    background: #fff;
+    color: #000;
+    padding: 16px 16px 30px 16px;
+  }
+
+.title{
+    width: 100%;
+    border: 1px solid rgba(141,95,245,0.5);
+    border-radius: 5px;
+    box-shadow: rgba(141, 95, 254, 0.24) 0px 3px 8px;
+}
+
+.title h2{
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 25px;
+}
+
+.title p{
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: 300;
+    color: #9D9CA6;
+
+}
+
+.graphics-container{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .graphics-container{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+    .graphic-left{
+        width: 100%;
+    }
+    .graphic-right{
+        border: 1px solid rgba(141,95,245,0.5);
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: rgba(141, 95, 254, 0.24) 0px 3px 8px;
+        width: 100%;
+        margin-left: 10px;
+    }
+}
+    
+
+.graphic-left{
+    width: 80%;
+}
+
+.graphic-top{
+    border: 1px solid rgba(141,95,245,0.5);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: rgba(141, 95, 254, 0.24) 0px 3px 8px;
+}
+
+.graphic-right{
+    border: 1px solid rgba(141,95,245,0.5);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: rgba(141, 95, 254, 0.24) 0px 3px 8px;
+    width: 30%;
+    margin-left: 10px;
+}

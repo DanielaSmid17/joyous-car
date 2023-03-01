@@ -1,0 +1,116 @@
+
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-content{
+    width: 700px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+    background-color: #fff;
+    border: 1px solid rgba(141,95,245,0.5);
+    border-radius: 5px;
+    box-shadow: rgba(141, 95, 254, 0.24) 0px 3px 8px;
+}
+
+.instructions{
+    text-align: center;
+    font-size: 20px;
+    color: #103a77;
+    padding: 10px 16px;
+}
+
+.text-input{
+        width: 180px;
+        height: 45px;
+        border-radius: 20px;
+        outline: none;
+        border: 1px solid rgba(141,95,245,0.5);
+}
+
+.select-input{
+        width: 180px;
+        height: 45px;
+        border-radius: 20px;
+        outline: none;
+        border: 1px solid rgba(141,95,245,0.5);
+}
+
+input{
+    padding-left: 10px;
+}
+
+input::placeholder{
+    padding: 10px;
+}
+input:focus{
+    border: 1px solid rgba(141,95,245,0.8)
+}
+
+
+select:focus{
+    border: 1px solid rgba(141,95,245,0.8)
+}
+
+label{
+    font-size: 12px;
+    color: #103a77;
+}
+
+.form-row{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-single {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.form-input{
+    padding: 10px 16px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.input {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.single-input {
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.error{
+    color: #F52447;
+    font-size: 10px;
+    text-align: end;
+}
+
+
+
+
+

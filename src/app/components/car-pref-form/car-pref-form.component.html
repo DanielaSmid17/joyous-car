@@ -1,0 +1,250 @@
+<div class="form-container">
+    <div class="form-content">
+        <span class="instructions">Please fill out this information so we can <br/> generate the perfect car for you!</span>
+        <form #form="ngForm" (ngSubmit)="submit(form)" [style.margin-top]="'20px'">
+            <div class="form-row">
+                <div class="form-input">
+                    <div class="input">
+                        <label for="fullName">
+                            Full Name:
+                        </label>
+                            <input 
+                            required
+                            min="2"
+                            type="text" 
+                            name="fullName"
+                            pattern="^(?!(<\s*\w+)).*$"
+                            #fullName="ngModel"
+                            class="text-input" 
+                            ngModel 
+                            placeholder="Yoko Ono"/>
+                    </div>
+                        <div 
+                        class="error" 
+                        *ngIf="fullName.touched && !fullName">
+                            First name is required                        
+                        </div>
+                        <div 
+                        class="error" 
+                        *ngIf="fullName.touched && fullName.errors?.['pattern']">
+                            This cannot be a tag                       
+                        </div>
+
+                </div>
+                <div class="form-input">
+                    <div class="input">
+
+                        <label for="gender">
+                            Gender:
+                        </label>
+                        <select ngModel required name="gender" id="gender" #gender="ngModel" class="select-input">
+                            <option value=""></option>
+                            <option *ngFor="let gender of genders" [ngValue]="gender">{{gender.label}}</option>
+                        </select>
+                    </div>
+                    <div 
+                        class="error" 
+                        *ngIf="gender.touched && !gender.valid">
+                    <div>
+                        Gender is required
+                    </div>
+                    
+                </div>
+
+                </div>
+            </div>
+                <div class="form-row">
+                    <div class="form-input">
+                        <div class="input">
+
+                            <label for="email">
+                                Email:
+                            </label>
+                                <input 
+                                required
+                                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                type="text" 
+                                name="email"
+                                class="text-input" 
+                                ngModel 
+                                #email="ngModel"
+                                placeholder="yoko.ono@gmail.com"/>
+                                
+                        </div>
+                        <div 
+                        class="error" 
+                        *ngIf="email.touched && email.errors?.['pattern']">
+                                This feild should be an email address
+                        
+                        </div>
+                        <div 
+                        class="error" 
+                        *ngIf="email.touched && email.errors?.['required']">
+                                Email is required
+                        
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <div class="input">
+
+                            <label for="motor">
+                                Motor type:
+                            </label>
+                            <div [style.margin-left]="'10px'">
+                                <label [style.width]="'100px'" >
+                                    <input ngModel type="radio" ngModel #motor="ngModel" name="motor" [value]="'electric'" required>
+                                    Electric
+                                    <input ngModel type="radio" name="motor" [value]="'fuel'">
+                                    Fuel
+                                </label>
+                            </div>
+                        </div>
+                        <div 
+                        class="error" 
+                        *ngIf="motor.touched && !motor.valid">
+                                Choose a motor type
+
+                        
+                        </div>
+                        
+                    
+
+                    </div>
+                    
+                </div>
+            <div class="form-row">
+                <div class="form-input">
+                    <div class="input">
+                        <label for="birthdate">
+                            Birth Date:
+                        </label>
+                        <input 
+                        required
+                        type="text" 
+                        name="birthdate"
+                        class="text-input" 
+                        placeholder="When were you born?"
+                        ngModel 
+                        #date="ngModel"
+                        onfocus="(this.type='date')"
+                        min="1923-01-01" 
+                        max="{{maxDate | date:'yyyy-MM-dd'}}"
+                        />
+                    </div>
+                    <div 
+                    class="error" 
+                    *ngIf="date.touched && !date.valid">
+                            Please select your birthdate
+                    
+                    </div>
+
+                </div>
+                <div class="form-input">
+                    <div class="input">
+
+                        <label for="location">
+                            Location:
+                    </label>
+                    <input 
+                        required
+                        type="text" 
+                        pattern="^(?!(<\s*\w+))[^,]*(,[^,]*){2,}$"
+                        name="location"
+                        #location="ngModel"
+                        [class]="'text-input'" 
+                        placeholder="Ben Yehuda, Tel Aviv, Israel"
+                        ngModel 
+                        />
+                    </div>
+                    <div 
+                    class="error" 
+                    *ngIf="location.touched && location.errors?.['pattern']">
+                            Please give us more details: Street, City, Country
+                    
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-input">
+                    <div class="input">
+                        <label for="color">
+                            Favorite Color:
+                        </label>
+                        <input 
+                        required
+                        type="text" 
+                        name="color"
+                        class="text-input" 
+                        placeholder="Drunk-Tank Pink"
+                        ngModel 
+                        #color="ngModel"
+                        onfocus="(this.type='color')"
+                        />
+                    </div>
+                    <div 
+                    class="error" 
+                    *ngIf="color.touched && !color.valid">
+                            Please select a color
+                    
+                    </div>
+
+                </div>
+                <div class="form-input">
+                    <div class="input">
+                        <label for="seats">Seats:</label>
+                        <input 
+                            required
+                            type="number" 
+                            name="seats"
+                            id="seats"
+                            min="2" 
+                            max="7"
+                            class="text-input" 
+                            ngModel 
+                            #seats="ngModel"
+                            pattern="^[2-7]$"
+                            [defaultValue]="2"
+                        />
+                    </div>
+                    <div 
+                    class="error" 
+                    *ngIf="seats.touched && !seats.valid">
+                            Car seats go between 2 and 7
+                    
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-single">
+                    <div class="single-input">
+                        <div class="input">
+                            <label for="hobbies">
+                                Hobbies:
+                            </label>
+                            <section>
+                                <div>
+                                  <span *ngFor="let hobbie of hobbies" class="checkbox">
+                                    <input 
+                                    name="hobbiesSelected" 
+                                    type="checkbox"
+                                    [value]="hobbie.id"
+                                    [checked]="hobbie.selected"
+                                    (change)="onChangeHobbies($event)" 
+                                     >{{ hobbie.label }}
+                                  </span>
+                                </div>
+                              </section>
+                        
+                    </div>
+                    
+                    </div>
+                
+            </div>
+            <div class="submit">
+                <button type="submit" mat-raised-button [style.margin]="'20px'" color="primary" [disabled]="!form.valid">Sumbit</button>
+            </div>
+        </form>
+
+    </div>
+</div>

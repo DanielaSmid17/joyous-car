@@ -1,0 +1,44 @@
+
+
+.main-container{
+    background-color: #F6F8F9;
+    height: 100vh;
+}
+
+.nav-bar{
+    box-shadow: 0 1px #fff;
+    
+}
+
+.link{
+    text-decoration: none;
+    color: #fff;
+    margin-left: 50px;
+    opacity: .8;
+}
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 3px 0;
+    font-size: 10px;
+    background: rgb(141,95,245);
+    background: linear-gradient(90deg, rgba(141,95,245,0.5) 0%, rgba(83,182,230,0.5) 35%);
+}
+mat-icon{
+    color: #fff;
+}
+
+mat-toolbar {
+    background: rgb(141,95,245);
+    background: linear-gradient(90deg, rgba(141,95,245,1) 0%, rgba(83,182,230,1) 35%);
+}
+
+.app-label {
+    color: #fff;
+    font-size: 20px;    
+}
