@@ -91,7 +91,7 @@ label{
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
-
+    height: 68px;
 }
 
 .single-input {
@@ -108,8 +108,14 @@ label{
     color: #F52447;
     font-size: 10px;
     text-align: end;
+    padding: 0;
+    width: 90%;
+    
 }
 
+mat-form-field {
+    width: 90%;
+}
 
 
 

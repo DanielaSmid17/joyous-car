@@ -7,8 +7,15 @@ export class NewUserServiceService {
 constructor() { }
 
 saveNewUser(newUser: any){
-  localStorage.setItem('newUser', JSON.stringify(newUser))
-  return 'Done!'
+  const dataset = localStorage.getItem('dataset')
+  if(dataset){
+    const datasetArray = JSON.parse(dataset)
+    datasetArray.push(newUser)
+    localStorage.setItem('dataset', JSON.stringify(datasetArray))
+    return 'Done!'
+  }
+
+  return('Not done!')
 }
 
 }

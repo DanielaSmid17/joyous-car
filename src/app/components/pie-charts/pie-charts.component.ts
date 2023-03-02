@@ -1,6 +1,7 @@
 import { OnInit } from '@angular/core';
 import { Component, Input } from '@angular/core';
-import users from '../../../assets/dataset/data.json'
+import { User } from 'src/app/models';
+
 
 @Component({
   selector: 'app-pie-charts',
@@ -10,15 +11,21 @@ import users from '../../../assets/dataset/data.json'
 export class PieChartsComponent implements OnInit {
 
   //creating different sets of data for 3 different graphs
+  @Input() users: User[] = [];
   
-  dataAll: any[] = users;
-  dataWomen: any[] = users.filter(user=> user.gender === 'Female');
-  dataMen: any[] = users.filter(user=> user.gender === 'Male');
+  dataAll: any[] = this.users;
+  dataWomen: any[] = this.users.filter(user=> user.gender === 'Female');
+  dataMen: any[] = this.users.filter(user=> user.gender === 'Male');
 
   constructor(){}
 
 
-  ngOnInit(): void {}
+  ngOnInit(){
+    this.dataAll = this.users;
+    this.dataWomen = this.users.filter(user=> user.gender === 'Female');
+    this.dataMen = this.users.filter(user=> user.gender === 'Male');
+    
+  }
 
 
 

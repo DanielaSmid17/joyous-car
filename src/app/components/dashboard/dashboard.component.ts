@@ -7,16 +7,17 @@ import { User } from 'src/app/models';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit{
-  user!: User;
+  users: User[]= [];
   date = new Date()
 
   constructor(){}
   
   // bringing user from local storage in case we want to use it
   ngOnInit(): void {
-    const userSaved = localStorage.getItem('newUser')
-    if(userSaved)
-      this.user = JSON.parse(userSaved)
+    const users = localStorage.getItem('dataset')
+    if (users) {
+      this.users = JSON.parse(users)
+    }
   }
 
 }

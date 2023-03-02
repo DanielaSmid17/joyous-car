@@ -9,14 +9,11 @@ import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition}
   styleUrls: ['./car-pref-form.component.css']
 })
 export class CarPrefFormComponent {
-  user!: User
+  user!: User;
 
-  genders: any[] = [
-    {id: 0, label: 'Female'},
-    {id: 1, label: 'Male'},
-    {id: 2, label: 'Other'},
-    {id: 3, label: 'Prefer not to answer'},
-  ]
+  totalUsers: number = 0;
+
+  genders: any[] = [ 'Female', 'Male', 'Other', 'Prefer not to answer']
 
   hobbies: any[] = [
     {id: 0, label: 'Gardening', selected: false},
@@ -68,6 +65,7 @@ export class CarPrefFormComponent {
     if (newUserSaved === 'Done!'){
       this.openSnackBar('Information saved, you will receive an email with you car match!')
       form.resetForm()
+      this.totalUsers ++
     }
 
     else {
@@ -86,7 +84,11 @@ export class CarPrefFormComponent {
   
 
 
-  ngOnInit(): void{}
+  ngOnInit(): void{
+    const dataset = localStorage.getItem('dataset')
+    if (dataset)
+      this.totalUsers = JSON.parse(dataset).length
+  }
 
   
 

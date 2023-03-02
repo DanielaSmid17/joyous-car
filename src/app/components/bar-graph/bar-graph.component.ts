@@ -1,7 +1,6 @@
-import { OnInit } from '@angular/core';
+import { OnInit, Input } from '@angular/core';
 import { Component } from '@angular/core';
-import users from '../../../assets/dataset/data.json'
-
+import { User } from 'src/app/models';
 @Component({
   selector: 'app-bar-graph',
   templateUrl: './bar-graph.component.html',
@@ -9,6 +8,8 @@ import users from '../../../assets/dataset/data.json'
 })
 export class BarGraphComponent implements OnInit {
   //initializing dataset
+  @Input() users: User[] = [];
+  
   aggregatedData : any = {
     "18 to 30": {},
     "31 to 45": {},
@@ -44,7 +45,7 @@ export class BarGraphComponent implements OnInit {
 
   //creating data object for each age group
   aggregateData(){
-    for(const user of users){
+    for(const user of this.users){
       const age = this.calcAge(user.birthdate) 
       if (age >= 18 && age < 30){
         this.addToRange("18 to 30", user.motor)

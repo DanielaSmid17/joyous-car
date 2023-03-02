@@ -19,7 +19,13 @@ import { PieChartsComponent } from './components/pie-charts/pie-charts.component
 import { PieBySeatsComponent } from './components/pie-by-seats/pie-by-seats.component';
 import { CountriesTableComponent } from './components/countries-table/countries-table.component';
 import {MatTableModule} from '@angular/material/table';
-
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +48,16 @@ import {MatTableModule} from '@angular/material/table';
     FormsModule,
     MatSnackBarModule,
     NgxChartsModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule
+
+    
     
 
   ],

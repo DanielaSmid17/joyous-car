@@ -5,10 +5,10 @@
             <div class="form-row">
                 <div class="form-input">
                     <div class="input">
-                        <label for="fullName">
-                            Full Name:
-                        </label>
+                        <mat-form-field appearance="outline">
+                            <mat-label for="fullName">Name: </mat-label>
                             <input 
+                            matInput 
                             required
                             min="2"
                             type="text" 
@@ -17,12 +17,18 @@
                             #fullName="ngModel"
                             class="text-input" 
                             ngModel 
-                            placeholder="Yoko Ono"/>
+                            placeholder="Yoko ono">
+                        </mat-form-field>
                     </div>
                         <div 
                         class="error" 
                         *ngIf="fullName.touched && !fullName">
                             First name is required                        
+                        </div>
+                        <div 
+                        class="error" 
+                        *ngIf="fullName.touched && !fullName.valid">
+                            First name must have more than 2 characters                        
                         </div>
                         <div 
                         class="error" 
@@ -33,14 +39,12 @@
                 </div>
                 <div class="form-input">
                     <div class="input">
-
-                        <label for="gender">
-                            Gender:
-                        </label>
-                        <select ngModel required name="gender" id="gender" #gender="ngModel" class="select-input">
-                            <option value=""></option>
-                            <option *ngFor="let gender of genders" [ngValue]="gender">{{gender.label}}</option>
-                        </select>
+                        <mat-form-field appearance="outline">
+                            <mat-label for="gender">Gender</mat-label>
+                            <mat-select ngModel required name="gender" id="gender" #gender="ngModel">
+                                <mat-option *ngFor="let gender of genders" [value]="gender">{{gender}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
                     </div>
                     <div 
                         class="error" 
@@ -56,19 +60,20 @@
                 <div class="form-row">
                     <div class="form-input">
                         <div class="input">
-
-                            <label for="email">
-                                Email:
-                            </label>
+                            <mat-form-field appearance="outline">
+                                <mat-label for="email">Email: </mat-label>
                                 <input 
+                                matInput 
                                 required
-                                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                                type="text" 
+                                type="email" 
                                 name="email"
-                                class="text-input" 
+                                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                class="text-input"
                                 ngModel 
                                 #email="ngModel"
-                                placeholder="yoko.ono@gmail.com"/>
+                                placeholder="yoko.ono@gmail.com"
+                                >
+                              </mat-form-field>
                                 
                         </div>
                         <div 
@@ -86,50 +91,40 @@
                     </div>
                     <div class="form-input">
                         <div class="input">
-
-                            <label for="motor">
-                                Motor type:
-                            </label>
-                            <div [style.margin-left]="'10px'">
-                                <label [style.width]="'100px'" >
-                                    <input ngModel type="radio" ngModel #motor="ngModel" name="motor" [value]="'electric'" required>
-                                    Electric
-                                    <input ngModel type="radio" name="motor" [value]="'fuel'">
-                                    Fuel
-                                </label>
-                            </div>
+                            <label for="motor">Motor Type: </label>
+                            <mat-radio-group ngModel #motor="ngModel" name="motor">
+                              <mat-radio-button value="Electric">Electric</mat-radio-button>
+                              <mat-radio-button value="Fuel">Fuel</mat-radio-button>
+                            </mat-radio-group>
                         </div>
                         <div 
                         class="error" 
                         *ngIf="motor.touched && !motor.valid">
                                 Choose a motor type
-
-                        
                         </div>
-                        
-                    
-
                     </div>
                     
                 </div>
             <div class="form-row">
                 <div class="form-input">
                     <div class="input">
-                        <label for="birthdate">
-                            Birth Date:
-                        </label>
-                        <input 
-                        required
-                        type="text" 
-                        name="birthdate"
-                        class="text-input" 
-                        placeholder="When were you born?"
-                        ngModel 
-                        #date="ngModel"
-                        onfocus="(this.type='date')"
-                        min="1923-01-01" 
-                        max="{{maxDate | date:'yyyy-MM-dd'}}"
-                        />
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label for="birthdate">Birth Date</mat-label>
+                            <input matInput 
+                            [matDatepicker]="picker"
+                            required
+                            name="birthdate"
+                            placeholder="When were you born?"
+                            ngModel 
+                            #date="ngModel"
+                            min="1923-01-01" 
+                            max="{{maxDate | date:'yyyy-MM-dd'}}"
+                            >
+                            <mat-datepicker-toggle matIconSuffix [for]="picker">
+                              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
                     </div>
                     <div 
                     class="error" 
@@ -141,20 +136,20 @@
                 </div>
                 <div class="form-input">
                     <div class="input">
-
-                        <label for="location">
-                            Location:
-                    </label>
-                    <input 
-                        required
-                        type="text" 
-                        pattern="^(?!(<\s*\w+))[^,]*(,[^,]*){2,}$"
-                        name="location"
-                        #location="ngModel"
-                        [class]="'text-input'" 
-                        placeholder="Ben Yehuda, Tel Aviv, Israel"
-                        ngModel 
-                        />
+                        <mat-form-field appearance="outline">
+                            <mat-label for="location">Location: </mat-label>
+                            <input 
+                            matInput 
+                            required
+                            type="text" 
+                            pattern="^(?!(<\s*\w+))[^,]*(,[^,]*){2,}$"
+                            name="location"
+                            #location="ngModel"
+                            [class]="'text-input'" 
+                            placeholder="Ben Yehuda, Tel Aviv, Israel"
+                            ngModel 
+                            >
+                        </mat-form-field>
                     </div>
                     <div 
                     class="error" 
@@ -168,19 +163,20 @@
             <div class="form-row">
                 <div class="form-input">
                     <div class="input">
-                        <label for="color">
-                            Favorite Color:
-                        </label>
-                        <input 
-                        required
-                        type="text" 
-                        name="color"
-                        class="text-input" 
-                        placeholder="Drunk-Tank Pink"
-                        ngModel 
-                        #color="ngModel"
-                        onfocus="(this.type='color')"
-                        />
+                        <mat-form-field appearance="outline">
+                            <mat-label for="color">Favorite color: </mat-label>
+                            <input 
+                            matInput 
+                            required
+                            type="text" 
+                            name="color"
+                            class="text-input" 
+                            placeholder="Drunk-Tank Pink"
+                            ngModel 
+                            #color="ngModel"
+                            onfocus="(this.type='color')"
+                            >
+                        </mat-form-field>
                     </div>
                     <div 
                     class="error" 
@@ -192,8 +188,10 @@
                 </div>
                 <div class="form-input">
                     <div class="input">
-                        <label for="seats">Seats:</label>
-                        <input 
+                        <mat-form-field appearance="outline">
+                            <mat-label for="seats">Seats: </mat-label>
+                            <input 
+                            matInput 
                             required
                             type="number" 
                             name="seats"
@@ -204,8 +202,9 @@
                             ngModel 
                             #seats="ngModel"
                             pattern="^[2-7]$"
-                            [defaultValue]="2"
-                        />
+                            [defaultValue]="2" 
+                            >
+                        </mat-form-field>
                     </div>
                     <div 
                     class="error" 
@@ -225,6 +224,7 @@
                             <section>
                                 <div>
                                   <span *ngFor="let hobbie of hobbies" class="checkbox">
+                                    
                                     <input 
                                     name="hobbiesSelected" 
                                     type="checkbox"
@@ -244,7 +244,7 @@
             <div class="submit">
                 <button type="submit" mat-raised-button [style.margin]="'20px'" color="primary" [disabled]="!form.valid">Sumbit</button>
             </div>
+            <div>People who have filled this form: <span [style.color]="'#8d5ff5'">{{totalUsers}}</span></div>
         </form>
-
     </div>
 </div>
