@@ -34,10 +34,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class CountriesTableComponent implements OnInit{
 
-  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
   displayedColumns: string[] = ['country', 'count']
-  // dataSource: Countries[] = [];
   @Input() users: User[] = [];
 
   //creating data for purchased cars by country table
@@ -45,10 +43,12 @@ export class CountriesTableComponent implements OnInit{
     const countries: any = {};
     const countryArray: any[] = [];
     for (const user of this.users){
-      if(!(user.location in countries))
-        countries[user.location] = 1
+      const location = user.location.split(',').slice(-1)[0].trim()
+      console.log(location)
+      if(!(location in countries))
+        countries[location] = 1
       else  
-        countries[user.location] = countries[user.location] + 1
+        countries[location] = countries[location] + 1
     }
 
     for (const country in countries){
