@@ -1,20 +1,8 @@
-<!-- <table>
-    <tr class="row">
-        <th class="header-left">Country</th>
-        <th class="header-right">Cars Purchased</th>
-    </tr>
-    <tr class="row" *ngFor="let country of dataSource">
-        <th class="cel-left">{{country.name}}</th>
-        <th class="cel-right">{{country.count}}</th>
-    </tr>
-</table> -->
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8" [style.margin-top]="'15px'">
-
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8" [style.margin-top]="'15px'">git add .
   <ng-container matColumnDef="country">
     <mat-header-cell [style.font-weight]="600" *matHeaderCellDef> Country </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
   </ng-container>
-
   <ng-container matColumnDef="count">
     <mat-header-cell [style.font-weight]="600" *matHeaderCellDef> Count </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.count}} </mat-cell>
