@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class NewUserServiceService {
 constructor() { }
 
+//updating dataset with new user
 saveNewUser(newUser: any){
   const dataset = localStorage.getItem('dataset')
   if(dataset){
@@ -15,7 +16,7 @@ saveNewUser(newUser: any){
     return 'Done!'
   }
 
-  return('Not done!')
+  return 'Not done!'
 }
 
 }

@@ -10,6 +10,7 @@ import data from '../assets/dataset/data.json'
 export class AppComponent implements OnInit{
 
   constructor(){}
+  //inititalizing dataset in local storage
   ngOnInit(){
     localStorage.setItem('dataset', JSON.stringify(data))
   }
